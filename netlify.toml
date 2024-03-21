@@ -1,4 +1,4 @@
 [build]
-  command = "vite build"  # Use "vite build" instead of "npm vite build"
-  publish = "build"
+  command = "vite build" 
+  publish = "dist"
   base = "/"
