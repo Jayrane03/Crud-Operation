@@ -1,4 +1,4 @@
 [build]
-  command = "npm run build"
+  command = "npm vite build"
   publish = "build"
-  base = "MERN_ASSIGNMENT"
+  base = "LOGIN_MERN"
