@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import loginImg from "/Images/login_1.jpg";
 import '../Styles/pages.css';
+import { BASE_URL } from '../services/helper';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({
+    name: '', // Add name field
     email: '',
     password: ''
   });
@@ -21,12 +23,13 @@ const LoginForm = () => {
     setError('');
   
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch(`${BASE_URL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          name: formData.name, // Include name in the request body
           email: formData.email,
           password: formData.password,
         })
@@ -36,17 +39,18 @@ const LoginForm = () => {
       if (response.ok) {
         if (data.token) {
           localStorage.setItem('token', data.token);
-          console.log('Token set:', data.token); // Log the token
-          alert("Login Successful");
-          window.location.href = '/home'; // Redirect to the home page after successful login
+          console.log('Token set:', data.token);
+  
+          // Alert name and email
+          alert(`Welcome ${formData.name} (${formData.email})`);
+  
+          // Redirect to the "/home2" route after successful login
+          window.location.href = '/home2';
+        } else {
+          setError('Please check your email or password');
+        }
       } else {
-          console.log(data);
-          alert("Please Check your email or password");
-      }
-      
-      } else {
-        console.log(data);
-        alert("Please Check your email or password");
+        setError('Please check your email or password');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -55,7 +59,7 @@ const LoginForm = () => {
       setLoading(false);
     }
   };
-  
+
   return (
     <div className="login">
       <div className="login-form-container">
@@ -66,6 +70,7 @@ const LoginForm = () => {
           <h2>Login</h2>
           {error && <p className="error">{error}</p>}
           <form onSubmit={handleLogin}>
+          
             <div className="form-group">
               <label htmlFor="email">Email:</label>
               <input
@@ -92,6 +97,7 @@ const LoginForm = () => {
             <button type="submit" disabled={loading}>
               {loading ? 'Logging in...' : 'Login'}
             </button>
+            <a href="/">Create a New Account</a>
           </form>
         </div>
       </div>

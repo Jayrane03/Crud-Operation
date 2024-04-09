@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../Styles/pages.css';
 import signUpImg from "/Images/sign.jpg";
+import { BASE_URL } from '../services/helper';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const RegisterForm = () => {
     setError('');
   
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch(`${BASE_URL}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -58,8 +59,6 @@ const RegisterForm = () => {
     }
   }
   
-  
-
   return (
     <div className="register">
       <div className="register-form-container">
@@ -106,6 +105,7 @@ const RegisterForm = () => {
             <button type="submit" disabled={loading}>
               {loading ? 'Registering...' : 'Register'}
             </button>
+          <a href="/login">Already have a account</a>
           </form>
         </div>
       </div>

@@ -1,0 +1,100 @@
+body{
+    background-color: #edeaea;
+}
+.cont{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center;
+
+   
+  
+   
+}
+#add_btn_1{
+    width: 20vw !important;
+}
+.form{
+    width: 27vw !important;
+}
+.log_out button{
+    right: 2%;
+    top: 2%;
+    position:absolute;
+    border-radius: 8px;
+    padding: 10px 20px;
+    color: aliceblue;
+    outline: none;
+    width: 20vw;
+    border: none;
+    background-color: #dc3545;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+}
+.log_out button:hover{
+    background-color: #bb1a2a;
+}
+
+
+.table_row th{
+    background-color:#212529;
+    color: aliceblue;
+} 
+.table{
+  display: block;
+  height: 100vh;
+
+   /* width: 70vw ;  */
+ 
+}
+.label{
+    text-align: center;
+    display: flex;
+}
+#fileInput{
+    width: 30vw;
+}
+.inp{
+    width: 30vw;
+}
+.add-cont{
+    
+    border: 1px solid #edeaea;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 51vw;
+    /* margin-top: 200px; */
+
+
+}
+button[type="submit"]{
+    text-align: center;
+    margin: 10px;
+    width: 70px;
+}
+input.form-control{
+    /* width: 30vw; */
+    margin-top: 10px;
+    display: inline-block;
+    margin: auto;
+}
+
+.link{
+    background-color: #dc3545;
+    color: aliceblue;
+    border-radius: 7px;
+    width: 80px;
+    padding: 10px 20px;
+    list-style: none;
+    text-decoration: none;
+}
+.link:nth-child(1){
+    background-color: #0d6efd;
+    color: aliceblue;
+}
